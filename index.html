@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horoscope</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+        integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Новый гороскоп на 2021 год!</h1>
+            <span class="header__description">Узнайте, что Вас ждёт.</span>
+        </div>
+    </header>
+    <main>
+        <div class="page">
+            <div class="container">
+                <img src="./images/thumb-image.jpg" class="page__image" width="287" height="158" />
+                <h2 class="page__title">
+                    Узнайте, как 2021 год изменит жизнь каждого из нас!
+                </h2>
+                <p class="page__text">
+                    К сожалению, 2020 год принес нам немало неприятностей, даже откровенных проблем и несчастий. Не смотря на
+                    это, 3 знака
+                    зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
+                </p>
+                <div class="question">
+                    <p class="question__title">
+                        Укажите свой пол:
+                    </p>
+                </div>
+                <div>
+                    <form class="answer"> 
+                        <div>   
+                            <input class="radio visually-hidden" type="radio" name="gender" value="female" id="female" />
+                            <label for="female" class="answer__label">Женщина</label>
+                        </div>
+                        <div>
+                            <input class="radio visually-hidden" type="radio" name="gender" value="male" id="male" />
+                            <label for="male" class="answer__label">Мужчина</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        
+    </footer>
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>

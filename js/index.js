@@ -5,6 +5,8 @@ const refs = {
     questions: document.querySelector(".question"),
     questionText: document.querySelector(".question__title"),
     answerList: document.querySelector(".answer__list"),
+    progress: document.querySelector(".question__progress"),
+    progressLoad: document.querySelector(".question__progress-load"),
     buttonNext: document.querySelector(".nextBtn"),
 }
 
@@ -47,7 +49,10 @@ function startQuiz(index) {
         return
     }
     refs.quiz.innerHTML = `
-        <img src="./images/thumb-image.jpg" class="page__image" width="287" height="158" />
+        <div class="page__image-wrapper">
+            <img src="./images/thumb-image.jpg" class="page__image" width="287" height="158" />
+            <img src="./images/zodiac-image.png" class="page__image-zodiac" width="146" height="160" />
+        </div>
         <h2 class="page__title">
             Узнайте, как 2021 год изменит жизнь каждого из нас!
         </h2>
@@ -56,6 +61,7 @@ function startQuiz(index) {
             это, 3 знака зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
         </p>
     `;
+    refs.progress.classList.add("question__progress-hidden");
 }
 
 function nextQuestion(e) {
@@ -64,7 +70,16 @@ function nextQuestion(e) {
         renderQuestions(nextIndex);
         refs.buttonNext.classList.add("visually-hidden");
         refs.answerList.classList.add("answer__column");
+        refs.progress.classList.remove("question__progress-hidden");
+        refs.progressLoad.style.width = loadProgress();
     }
+}
+
+function loadProgress() {
+    const index = Number(refs.questions.dataset.currentPage);
+    const length = listQuestionAnswer.length;
+    const progressPercent = ((index / length) * 100) + '%';
+    return progressPercent;
 }
 
 function setResults(e) {

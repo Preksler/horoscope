@@ -1,18 +1,31 @@
-import { listQuestionAnswer } from "./listQuestionAnswer.js";
+import { listQuestionAnswer } from "./listQuestionlistQuestionAnswer.js";
 
 const refs = {
+    quiz: document.querySelector(".page__start"),
+    questions: document.querySelector(".question"),
+    questionText: document.querySelector(".question__title"),
+    answerList: document.querySelector(".answer__list"),
     buttonNext: document.querySelector(".nextBtn"),
-    questions: document.querySelector(".question__wrapper"),
 }
 
 let results = {};
 refs.questions.addEventListener('click', setResults);
-refs.buttonNext.addEventListener('click', nextQuestion)
+refs.buttonNext.addEventListener('click', nextQuestion);
 
 function renderQuestions(index) {
     refs.questions.dataset.currentPage = index;
 
     const renderAnswers = () => {
+        if (index === 0) {
+            return listQuestionAnswer[index].answers.map(answer => {
+                return `
+                    <li>
+                        <${answer.tag} class="radio" type=${answer.type} name=${answer.name} value=${answer.value} id=${answer.id} />
+                        <label for=${answer.id} class="answer__label">${answer.value}</label>
+                    </li>
+                `;
+            }).join('');
+        }
         return listQuestionAnswer[index].answers.map(answer => {
             return `
                 <li class="answer__item">
@@ -23,27 +36,34 @@ function renderQuestions(index) {
         }).join('');
     };
 
-    refs.questions.innerHTML = `
-        <div class="question">
-            <p class="question__title">
-                ${listQuestionAnswer[index].question}
-            </p>
-        </div>
-        <div class="answer-list">
-            <form>
-                <ul class="answer">
-                    ${renderAnswers()}
-                </ul>
-            </form>
-        </div>
+    startQuiz(index);
+    refs.questionText.innerHTML = listQuestionAnswer[index].question;
+    refs.answerList.innerHTML = renderAnswers();
+}
+
+function startQuiz(index) {
+    if (index !== 0) {
+        refs.quiz.innerHTML = '';
+        return
+    }
+    refs.quiz.innerHTML = `
+        <img src="./images/thumb-image.jpg" class="page__image" width="287" height="158" />
+        <h2 class="page__title">
+            Узнайте, как 2021 год изменит жизнь каждого из нас!
+        </h2>
+        <p class="page__text">
+            К сожалению, 2020 год принес нам немало неприятностей, даже откровенных проблем и несчастий. Не смотря на
+            это, 3 знака зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
+        </p>
     `;
 }
 
 function nextQuestion(e) {
     if (e.target.classList.contains('nextBtn')) {
-        const page = Number(refs.questions.dataset.currentPage) + 1;
-        renderQuestions(page);
+        const nextIndex = Number(refs.questions.dataset.currentPage) + 1;
+        renderQuestions(nextIndex);
         refs.buttonNext.classList.add("visually-hidden");
+        refs.answerList.classList.add("answer__column");
     }
 }
 

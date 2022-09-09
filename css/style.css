@@ -56,6 +56,19 @@ body {
     font-size: 14px;
 }
 
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
 .container {
     width: 100%;
     padding-left: 15px;
@@ -124,9 +137,9 @@ body {
     line-height: 19px;
 }
 
-.question {
+.question__wrapper {
     background-color: var(--main-color);
-    padding: 15px 0;
+    padding: 15px 21px;
 }
 
 .question__title {
@@ -137,17 +150,34 @@ body {
     text-align: center;
 }
 
-.answer {
+.answer__list {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--answer-bg-color);
     color: var(--black-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
-    padding: 25px 0;
+    padding: 25px 17px;
     margin-bottom: 14px;
+}
+
+.answer__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--answer-bg-color);
+    color: var(--black-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 37px 17px 45px 17px;
+    margin-bottom: 14px;
+}
+
+.answer__item:not(:last-child) {
+    margin-bottom: 30px;
 }
 
 .radio {
@@ -222,23 +252,6 @@ body {
 .nextBtn {
     width: 186px;
     height: 45px;
-}
-
-/* .nextBtn__none {
-    display: none;
-} */
-
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
 }
 
 .footer__copy {

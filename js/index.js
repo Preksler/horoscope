@@ -11,6 +11,7 @@ const refs = {
     zodiacWrapper: document.querySelector(".zodiac__wrapper"),
     zodiacImage: document.querySelector(".zodiac__image"),
     zodiacName: document.querySelector(".zodiac__name"),
+    pageResults: document.querySelector(".page__results"),
     buttonNext: document.querySelector(".nextBtn"),
 }
 
@@ -72,7 +73,7 @@ function nextQuestion(e) {
     if (e.target.classList.contains('nextBtn')) {
         const nextIndex = Number(refs.questions.dataset.currentPage) + 1;
         if (nextIndex === listQuestionAnswer.length - 1) {
-            renderBirthday(nextIndex)
+            renderBirthday(nextIndex);
         } else {
             renderQuestions(nextIndex);
         }
@@ -84,21 +85,25 @@ function nextQuestion(e) {
 }
 
 function renderBirthday(index) {
+    // refs.questions.dataset.currentPage = index;
     const allDay = ['День'];
     const allMonth = ['Месяц'];
     const allYears = ['Год'];
+    const year = new Date().getFullYear();
     for (let i = 1; i <= 31; i++){
+        if (i < 10){i = '0' + i}
         allDay.push(i);
     }
     for (let i = 1; i <= 12; i++){
+        if (i < 10){i = '0' + i}
         allMonth.push(i);
     }
-    for (let i = 1940; i <= 2020; i++){
+    for (let i = 1940; i <= year; i++){
         allYears.push(i);
     }
     refs.questionText.innerHTML = listQuestionAnswer[index].question;
     refs.answerList.classList.add("answer__column-birthday");
-    refs.zodiacWrapper.classList.remove("visually-hidden")
+    refs.zodiacWrapper.classList.remove("visually-hidden");
     
     refs.answerList.innerHTML = `
         <select class="select" id="day">
@@ -113,6 +118,13 @@ function renderBirthday(index) {
     `;
 }
 
+function renderResults() {
+    refs.questions.innerHTML = '';
+    refs.pageResults.innerHTML = `
+        <p> RESULTS </>
+    `;
+}
+
 function zodiacSign(e) {
     if (e.target.classList.contains('select')) {
         const day = Number(document.getElementById("day").value);
@@ -121,11 +133,13 @@ function zodiacSign(e) {
 
         if (Number.isNaN(day) || Number.isNaN(month) || Number.isNaN(year)) {
             refs.selectMessage.classList.remove("visually-hidden");
-            refs.buttonNext.classList.add("visually-hidden")
+            refs.buttonNext.classList.add("visually-hidden");
             refs.zodiacImage.innerHTML = '';
             refs.zodiacName.innerHTML = '';
+            refs.zodiacWrapper.style.paddingBottom = "28px";
         } else {
-            refs.selectMessage.classList.add("visually-hidden")
+            refs.selectMessage.classList.add("visually-hidden");
+            refs.zodiacWrapper.style.paddingBottom = "0";
         }
  
         if (month == 1 && day >= 20 || month == 2 && day <= 18) {

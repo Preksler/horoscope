@@ -181,35 +181,39 @@ body {
     text-align: center;
 }
 
+.answer__wrapper{
+    background-color: var(--answer-bg-color);
+    margin-bottom: 14px;
+}
+
 .answer__list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--answer-bg-color);
+    padding-top: 25px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-bottom: 25px;
     color: var(--black-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
-    padding: 25px 17px;
-    margin-bottom: 14px;
 }
 
 .answer__column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--answer-bg-color);
-    color: var(--black-color);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    padding: 37px 17px 45px 17px;
-    margin-bottom: 14px;
 }
 
-.answer__column-center {
+.answer__column-birthday {
     align-items: center;
+    padding-bottom: 0;
 }
+
+/* .answer__column-birthday .birthday__message {
+    padding-bottom: 28px;
+} */
 
 .answer__item:not(:last-child) {
     margin-bottom: 30px;
@@ -290,6 +294,36 @@ body {
 
 .select:last-child {
     margin-bottom: 0;
+}
+
+.zodiac__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 28px;
+}
+
+.birthday__message {
+    display: block;
+    text-align: center;
+    padding: 8px 29px 6px;
+    margin-top: 37px;
+    width: 233px;
+    height: 36px;
+    background-color: #FFD8CF;
+    color: #D0060E;
+
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 22px;
+
+    
+}
+
+.zodiac__image {
+    display: flex;
+    justify-content: center;
 }
 
 .zodiac__name {

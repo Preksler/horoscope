@@ -1,6 +1,7 @@
 :root {
     --black-color: #000000;
     --white-color: #FFFFFF;
+    --red-color: #D0060E;
     --accent-color: #315DF9;
     --active-color: #315DFA;
     --main-color: #343B4D;
@@ -312,7 +313,7 @@ body {
     width: 233px;
     height: 36px;
     background-color: #FFD8CF;
-    color: #D0060E;
+    color: var(--red-color);
 
     font-size: 13px;
     font-weight: 300;
@@ -333,6 +334,97 @@ body {
     line-height: 22px;
     color: var(--black-color);
 }
+
+/* ========================================== */
+
+.results__title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    color: var(--main-color);
+    margin-top: 34px;
+    margin-bottom: 19px;
+}
+
+.results__progress {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    background-color: var(--answer-bg-color);
+    margin-bottom: 26px;
+}
+
+.results__progress-load {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 42px;
+    width: 100%;
+    background-color: #419330;
+    animation-name: loadProgress;
+    animation-duration: 3500ms;
+    animation-timing-function: linear;
+}
+
+.results__progress-percent {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    color: var(--white-color);
+}
+
+.results__list {
+    margin-bottom: 37px;
+}
+
+.results__item {
+    display: flex;
+    justify-content: space-between;
+    text-align: baseline;
+    margin-bottom: 20px;
+}
+
+.results__item:last-child {
+    margin-bottom: 0;
+}
+
+.results__steap {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    color: var(--main-color);
+}
+
+.results__success {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #419330;
+}
+
+.results__success-red {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--red-color);
+    text-transform: uppercase;
+
+}
+
+.results__ready {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--main-color);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* ========================================== */
 
 .btn-wrapper {
     display: flex;
@@ -369,4 +461,14 @@ body {
     font-weight: 400;
     line-height: 22px;
     color: var(--footer-color);
+}
+
+@keyframes loadProgress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }

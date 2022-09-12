@@ -12,6 +12,9 @@ const refs = {
     zodiacImage: document.querySelector(".zodiac__image"),
     zodiacName: document.querySelector(".zodiac__name"),
     pageResults: document.querySelector(".page__results"),
+    progressPercent: document.querySelector(".results__progress-percent"),
+    resultsList: document.querySelectorAll(".results__item .results__success-red"),
+    resultsSuccess: document.querySelector(".results__ready"),
     buttonNext: document.querySelector(".nextBtn"),
 }
 
@@ -67,12 +70,21 @@ function startQuiz(index) {
         </p>
         `;
     refs.progress.classList.add("question__progress-hidden");
+    loadProgressPercent()
+    resultsProgress()
 }
 
 function nextQuestion(e) {
     if (e.target.classList.contains('nextBtn')) {
         const nextIndex = Number(refs.questions.dataset.currentPage) + 1;
-        if (nextIndex === listQuestionAnswer.length - 1) {
+        // if (nextIndex === listQuestionAnswer.length - 1) {
+        //     renderBirthday(nextIndex);
+        // } else {
+        //     renderQuestions(nextIndex);
+        // }
+        if (nextIndex === listQuestionAnswer.length) {
+            renderResults();
+        } else if (nextIndex === listQuestionAnswer.length - 1) {
             renderBirthday(nextIndex);
         } else {
             renderQuestions(nextIndex);
@@ -85,7 +97,7 @@ function nextQuestion(e) {
 }
 
 function renderBirthday(index) {
-    // refs.questions.dataset.currentPage = index;
+    refs.questions.dataset.currentPage = index;
     const allDay = ['День'];
     const allMonth = ['Месяц'];
     const allYears = ['Год'];
@@ -121,7 +133,7 @@ function renderBirthday(index) {
 function renderResults() {
     refs.questions.innerHTML = '';
     refs.pageResults.innerHTML = `
-        <p> RESULTS </>
+        <p> Обработка Ваших данных: </p>
     `;
 }
 
@@ -265,6 +277,40 @@ function loadProgress(index) {
     const length = listQuestionAnswer.length - 1;
     const progressPercent = ((index / length) * 100) + '%';
     return progressPercent;
+}
+
+function loadProgressPercent() {
+    let res = 0;
+    let timerId = null;
+    if (res <= 0) {
+        timerId = setInterval(() => {
+            res += 1;
+            refs.progressPercent.innerHTML = `${res}%`;
+            if (res == 100) {
+                clearInterval(timerId)
+            }
+        }, 31);
+    }
+}
+
+function resultsProgress() {
+    function add(i) {
+        let timer1 = setTimeout(() => {
+            refs.resultsList[i].classList.remove("results__success-red");
+            refs.resultsList[i].textContent = "Выполнено!";
+            if (i == refs.resultsList.length - 1) {
+                refs.resultsSuccess.classList.remove("visually-hidden");
+            }
+            clearTimeout(timer1)
+        }, 450)
+        if (i < refs.resultsList.length - 1) {
+            let timer2 = setTimeout(() => {
+                add(i + 1);
+                clearTimeout(timer2)
+            }, 500)
+        }
+    }
+    add(0)
 }
 
 function setResults(e) {

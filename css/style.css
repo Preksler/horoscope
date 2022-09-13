@@ -361,9 +361,6 @@ body {
     height: 42px;
     width: 100%;
     background-color: #419330;
-    animation-name: loadProgress;
-    animation-duration: 3500ms;
-    animation-timing-function: linear;
 }
 
 .results__progress-percent {
@@ -424,6 +421,45 @@ body {
     margin-bottom: 10px;
 }
 
+.finish {
+    margin-bottom: 19px;
+}
+
+.finish__thanks {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    color: var(--main-color);
+    margin-top: 34px;
+    margin-bottom: 19px;
+}
+
+.finish__congratulations {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    color: var(--active-color);
+    margin-bottom: 19px;
+}
+
+.finish__title {
+ font-size: 18px;
+ font-weight: 500;
+ line-height: 19px;
+ color: var(--main-color);
+}
+
+.finish__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 29px;
+}
+
+.finish__text:last-child {
+    margin-bottom: 0;
+}
+
 /* ========================================== */
 
 .btn-wrapper {
@@ -449,9 +485,24 @@ body {
     box-shadow: inset 0 4px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-.nextBtn {
+.next__button {
     width: 186px;
     height: 45px;
+}
+
+.call__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+    height: 45px;
+}
+
+.call__button-icon {
+    position: absolute;
+    top: 9px;
+    left: 18px;
 }
 
 .footer__copy {
@@ -461,14 +512,4 @@ body {
     font-weight: 400;
     line-height: 22px;
     color: var(--footer-color);
-}
-
-@keyframes loadProgress {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
 }

@@ -1,4 +1,5 @@
 import { listQuestionAnswer } from "./listQuestionlistQuestionAnswer.js";
+import { fetchPeople } from "./fetchAPI.js";
 
 const refs = {
     quiz: document.querySelector(".page__start"),
@@ -12,10 +13,14 @@ const refs = {
     zodiacImage: document.querySelector(".zodiac__image"),
     zodiacName: document.querySelector(".zodiac__name"),
     pageResults: document.querySelector(".page__results"),
-    progressPercent: document.querySelector(".results__progress-percent"),
+    resultProgressAnimation: document.querySelector(".results__progress-load"),
+    resultProgressPercent: document.querySelector(".results__progress-percent"),
     resultsList: document.querySelectorAll(".results__item .results__success-red"),
     resultsSuccess: document.querySelector(".results__ready"),
-    buttonNext: document.querySelector(".nextBtn"),
+    finishPage: document.querySelector(".page__finish"),
+    finishPageContainer: document.querySelector(".finish"),
+    buttonNext: document.querySelector(".next__button"),
+    buttonCall: document.querySelector(".call__button"),
 }
 
 let results = {};
@@ -70,12 +75,10 @@ function startQuiz(index) {
         </p>
         `;
     refs.progress.classList.add("question__progress-hidden");
-    loadProgressPercent()
-    resultsProgress()
 }
 
 function nextQuestion(e) {
-    if (e.target.classList.contains('nextBtn')) {
+    if (e.target.classList.contains('next__button')) {
         const nextIndex = Number(refs.questions.dataset.currentPage) + 1;
         // if (nextIndex === listQuestionAnswer.length - 1) {
         //     renderBirthday(nextIndex);
@@ -132,9 +135,29 @@ function renderBirthday(index) {
 
 function renderResults() {
     refs.questions.innerHTML = '';
-    refs.pageResults.innerHTML = `
-        <p> Обработка Ваших данных: </p>
+    loadProgressPercent();
+    resultsAnalysisProgress();
+    refs.pageResults.classList.remove("visually-hidden");
+    let timerId = setTimeout(() => {
+        refs.pageResults.innerHTML = '';
+        renderFinishPage();
+        clearTimeout(timerId);
+    }, 5000)
+}
+
+function renderFinishPage() {
+    refs.finishPage.classList.remove("visually-hidden");
+    refs.questions.innerHTML = '';
+    refs.finishPageContainer.innerHTML = `
+        <p class="finish__thanks"> Спасибо за Ваши ответы! </p>
+        <p class="finish__congratulations">Поздравляем! Прослушать свой персональный гороскоп возможно уже сейчас!</p>
+        <div class="finish__wrapper">
+            <h2 class="finish__title">2021 год Вас ошарашит!</h2>
+            <p class="finish__text">Вас ждёт то, чего Вы никак не ожидали. Первые известия Вы получите совсем скоро, возможно это 17-18 ноября!</p>
+            <p class="finish__text">Что бы прослушать аудио-сообщение, необходимо нажать на кнопку ниже и позвонить со своего мобильного телефона. Позвоните и Прослушайте очень серьезную информацию!</p>
+        </div>
     `;
+    refs.buttonCall.classList.remove("visually-hidden")
 }
 
 function zodiacSign(e) {
@@ -285,7 +308,8 @@ function loadProgressPercent() {
     if (res <= 0) {
         timerId = setInterval(() => {
             res += 1;
-            refs.progressPercent.innerHTML = `${res}%`;
+            refs.resultProgressPercent.innerHTML = `${res}%`;
+            refs.resultProgressAnimation.style.width = `${res}%`
             if (res == 100) {
                 clearInterval(timerId)
             }
@@ -293,7 +317,7 @@ function loadProgressPercent() {
     }
 }
 
-function resultsProgress() {
+function resultsAnalysisProgress() {
     function add(i) {
         let timer1 = setTimeout(() => {
             refs.resultsList[i].classList.remove("results__success-red");

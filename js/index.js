@@ -19,6 +19,7 @@ const refs = {
     resultsSuccess: document.querySelector(".results__ready"),
     finishPage: document.querySelector(".page__finish"),
     finishPageContainer: document.querySelector(".finish"),
+    fetchResults: document.querySelector(".fetch__table"),
     buttonNext: document.querySelector(".next__button"),
     buttonCall: document.querySelector(".call__button"),
 }
@@ -27,6 +28,7 @@ let results = {};
 refs.questions.addEventListener('click', setResults);
 refs.questions.addEventListener('change', zodiacSign);
 refs.buttonNext.addEventListener('click', nextQuestion);
+refs.buttonCall.addEventListener('click', getPeopleInfo);
 
 function renderQuestions(index) {
     refs.questions.dataset.currentPage = index;
@@ -158,6 +160,116 @@ function renderFinishPage() {
         </div>
     `;
     refs.buttonCall.classList.remove("visually-hidden")
+}
+
+async function getPeopleInfo() {
+    try {
+        const peopleInfo = await fetchPeople();
+        renderPeopleInfo(peopleInfo);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function renderPeopleInfo(info) {
+    const {
+        name,
+        height,
+        mass,
+        hair_color,
+        skin_color,
+        eye_color,
+        birth_year,
+        gender,
+        homeworld,
+        films,
+        species,
+        vehicles,
+        starships,
+        created,
+        edited,
+        url
+    } = info;
+    refs.fetchResults.innerHTML = `
+        <table class="table">
+            <tr>
+                <td>Имя: </td>
+                <td>${name}</td>
+            </tr>
+            <tr>
+                <td>Рост: </td>
+                <td>${height}</td>
+            </tr>
+            <tr>
+                <td>Масса: </td>
+                <td>${mass}</td>
+            </tr>
+            <tr>
+                <td>Цвет волос: </td>
+                <td>${hair_color}</td>
+            </tr>
+            <tr>
+                <td>Цвет кожи: </td>
+                <td>${skin_color}</td>
+            </tr>
+            <tr>
+                <td>Цвет глаз: </td>
+                <td>${eye_color}</td>
+            </tr>
+            <tr>
+                <td>Год рождения: </td>
+                <td>${birth_year}</td>
+            </tr>
+            <tr>
+                <td>Пол: </td>
+                <td>${gender}</td>
+            </tr>
+            <tr>
+                <td>Родной мир: </td>
+                <td><a href="${homeworld} target="_blank"">${homeworld}</a></td>
+            </tr>
+            <tr>
+                <td>Фильмы: </td>
+                <td>
+                    ${films.map(item => {
+                        return `<a href="${item}" target="_blank">${item}</a><br />`
+                    }).join('')}
+                </td>
+            </tr>
+            <tr>
+                <td>Разновидность: </td>
+                <td>${species}</td>
+            </tr>
+            <tr>
+                <td>Транспортные средства: </td>
+                <td>
+                    ${vehicles.map(item => {
+                        return `<a href="${item}" target="_blank">${item}</a><br />`
+                    }).join('')}
+                </td>
+            </tr>
+            <tr>
+                <td>Звездолеты: </td>
+                <td>
+                    ${starships.map(item => {
+                        return `<a href="${item}" target="_blank">${item}</a><br />`
+                    }).join('')}
+                </td>
+            </tr>
+            <tr>
+                <td>Созданный: </td>
+                <td>${created}</td>
+            </tr>
+            <tr>
+                <td>Отредактировано: </td>
+                <td>${edited}</td>
+            </tr>
+            <tr>
+                <td>URL: </td>
+                <td><a href="${url} target="_blank"">${url}</a></td>
+            </tr>
+        </table>
+    `;
 }
 
 function zodiacSign(e) {
@@ -331,7 +443,7 @@ function resultsAnalysisProgress() {
             let timer2 = setTimeout(() => {
                 add(i + 1);
                 clearTimeout(timer2)
-            }, 500)
+            }, 460)
         }
     }
     add(0)

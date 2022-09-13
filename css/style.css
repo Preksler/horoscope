@@ -460,6 +460,12 @@ body {
     margin-bottom: 0;
 }
 
+.table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* ========================================== */
 
 .btn-wrapper {

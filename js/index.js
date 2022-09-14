@@ -302,7 +302,11 @@ function zodiacSign(e) {
         if (month == 1 && day >= 20 || month == 2 && day <= 18) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                    <img src="./images/11_Aquarius.png" alt="Водолей" />
+                    <img
+                        srcset="./images/11_Aquarius.png 1x, ./images/11_Aquarius@2x.png 2x"
+                        src="./images/11_Aquarius.png"
+                        alt="Водолей"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Водолей";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -311,7 +315,11 @@ function zodiacSign(e) {
         else if (month == 2 && day >= 19 || month == 3 && day <= 20) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/12_Pisces.png" alt="Рыбы" />
+                    <img
+                        srcset="./images/12_Pisces.png 1x, ./images/12_Pisces@2x.png 2x"
+                        src="./images/12_Pisces.png"
+                        alt="Рыбы"
+                    />    
                 `;
                 refs.zodiacName.innerHTML = "Рыбы";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -320,7 +328,11 @@ function zodiacSign(e) {
         else if (month == 3 && day >= 21 || month == 4 && day <= 19) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/1_aries.png" alt="Овен" />
+                    <img
+                        srcset="./images/1_aries.png 1x, ./images/1_aries@2x.png 2x"
+                        src="./images/1_aries.png"
+                        alt="Овен"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Овен";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -329,7 +341,11 @@ function zodiacSign(e) {
         else if (month == 4 && day >= 20 || month == 5 && day <= 20) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/2_Taurus.png" alt="Телец" />
+                    <img
+                        srcset="./images/2_Taurus.png 1x, ./images/2_Taurus@2x.png 2x"
+                        src="./images/2_Taurus.png"
+                        alt="Телец"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Телец";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -338,7 +354,11 @@ function zodiacSign(e) {
         else if (month == 5 && day >= 21 || month == 6 && day <= 21) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/3_Gemini.png" alt="Близнецы" />
+                    <img
+                        srcset="./images/3_Gemini.png 1x, ./images/3_Gemini@2x.png 2x"
+                        src="./images/3_Gemini.png"
+                        alt="Близнецы"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Близнецы";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -347,7 +367,11 @@ function zodiacSign(e) {
         else if (month == 6 && day >= 22 || month == 7 && day <= 22) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/4_Rak.png" alt="Рак" />
+                    <img
+                        srcset="./images/4_Rak.png 1x, ./images/4_Rak@2x.png 2x"
+                        src="./images/4_Rak.png"
+                        alt="Рак"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Рак";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -356,7 +380,11 @@ function zodiacSign(e) {
         else if (month == 7 && day >= 23 || month == 8 && day <= 22) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/5_Leo.png" alt="Лев" />
+                    <img
+                        srcset="./images/5_Leo.png 1x, ./images/5_Leo@2x.png 2x"
+                        src="./images/5_Leo.png"
+                        alt="Лев"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Лев";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -365,7 +393,11 @@ function zodiacSign(e) {
         else if (month == 8 && day >= 23 || month == 9 && day <= 22) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/6_Virgo.png" alt="Дева" />
+                    <img
+                        srcset="./images/6_Virgo.png 1x, ./images/6_Virgo@2x.png 2x"
+                        src="./images/6_Virgo.png"
+                        alt="Дева"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Дева";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -374,7 +406,11 @@ function zodiacSign(e) {
         else if (month == 9 && day >= 23 || month == 10 && day <= 22) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/7_Libra.png" alt="Весы" />
+                    <img
+                        srcset="./images/7_Libra.png 1x, ./images/7_Libra@2x.png 2x"
+                        src="./images/7_Libra.png"
+                        alt="Весы"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Весы";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -383,7 +419,11 @@ function zodiacSign(e) {
         else if (month == 10 && day >= 23 || month == 11 && day <= 21) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/8_Scorpio.png" alt="Скорпион" />
+                    <img
+                        srcset="./images/8_Scorpio.png 1x, ./images/8_Scorpio@2x.png 2x"
+                        src="./images/8_Scorpio.png"
+                        alt="Скорпион"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Скорпион";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -392,7 +432,11 @@ function zodiacSign(e) {
         else if (month == 11 && day >= 22 || month == 12 && day <= 21) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/9_Sagittarius.png" alt="Стрелец" />
+                    <img
+                        srcset="./images/9_Sagittarius.png 1x, ./images/9_Sagittarius@2x.png 2x"
+                        src="./images/9_Sagittarius.png"
+                        alt="Стрелец"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Стрелец";
                 refs.buttonNext.classList.remove("visually-hidden");
@@ -401,7 +445,11 @@ function zodiacSign(e) {
         else if (month == 12 && day >= 22 || month == 1 && day <= 19) {
             if (!Number.isNaN(year)) {
                 refs.zodiacImage.innerHTML = `
-                <img src="./images/10_Capricorn.png" alt="Козерог" />
+                    <img
+                        srcset="./images/10_Capricorn.png 1x, ./images/10_Capricorn@2x.png 2x"
+                        src="./images/10_Capricorn.png"
+                        alt="Козерог"
+                    />
                 `;
                 refs.zodiacName.innerHTML = "Козерог";
                 refs.buttonNext.classList.remove("visually-hidden");

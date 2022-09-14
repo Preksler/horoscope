@@ -65,8 +65,18 @@ function startQuiz(index) {
     }
     refs.quiz.innerHTML = `
         <div class="page__image-wrapper">
-            <img src="./images/thumb-image.jpg" class="page__image" width="287" height="158" />
-            <img src="./images/zodiac-image.png" class="page__image-zodiac" width="146" height="160" />
+            <img
+                srcset="./images/thumb-image.jpg 1x, ./images/thumb-image@2x.jpg 2x"
+                src="./images/thumb-image.jpg"
+                alt="Звёздное небо"
+                class="page__image"
+            />
+            <img
+                srcset="./images/zodiac-image.png 1x, ./images/zodiac-image@2x.png 2x"
+                src="./images/zodiac-image.png"
+                alt="Зодиакальный круг"
+                class="page__image-zodiac"
+            />
         </div>
         <h2 class="page__title">
             Узнайте, как 2021 год изменит жизнь каждого из нас!

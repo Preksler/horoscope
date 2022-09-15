@@ -130,13 +130,13 @@ body {
     color: var(--header-color);
     font-size: 17px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 0.94;
 }
 
 @media screen and (min-width: 768px) {
     .header__title {
         font-size: 20px;
-        line-height: 22px;
+        line-height: 1.1;
     }
 }
 
@@ -144,13 +144,13 @@ body {
     color: var(--header-color);
     font-size: 10px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1.6;
 }
 
 @media screen and (min-width: 768px) {
     .header__description {
         font-size: 16px;
-        line-height: 22px;
+        line-height: 1.38;
     }
 }
 
@@ -209,20 +209,21 @@ body {
     color: var(--accent-color);
     font-size: 17px;
     font-weight: 500;
-    line-height: 22px;
+    line-height: 1.29;
     margin-bottom: 9px;
 }
 
 @media screen and (min-width: 768px) {
     .page__title {
         font-size: 20px;
+        line-height: 1.1;
         margin-bottom: 22px;
     }
 }
 
 .page__text {
     font-weight: 400;
-    line-height: 19px;
+    line-height: 1.36;
     margin-bottom: 15px;
 }
 
@@ -235,7 +236,7 @@ body {
 @media screen and (min-width: 768px) {
     .page__text {
         font-size: 16px;
-        line-height: 23px;
+        line-height: 1.44;
         margin-bottom: 47px;
     }
 }
@@ -281,13 +282,14 @@ body {
 .question__title {
     color: var(--white-color);
     font-weight: 700;
-    line-height: 22px;
+    line-height: 1.57;
     text-align: center;
 }
 
 @media screen and (min-width: 768px) {
     .question__title {
         font-size: 20px;
+        line-height: 1.1;
     }
 }
 
@@ -306,12 +308,13 @@ body {
     padding-bottom: 25px;
     color: var(--black-color);
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.57;
 }
 
 @media screen and (min-width: 768px) {
     .answer__list {
         font-size: 16px;
+        line-height: 1.38;
         padding-left: 96px;
         padding-right: 96px;
     }
@@ -327,6 +330,7 @@ body {
 @media screen and (min-width: 768px) {
     .answer__column {
         font-size: 16px;
+        line-height: 1.38;
         padding-left: 51px;
         padding-right: 51px;
     }
@@ -352,6 +356,7 @@ body {
     position: relative;
     padding: 14px;
     cursor: pointer;
+    line-height: 1.57;
 }
 
 .radio+label:before {
@@ -417,7 +422,7 @@ body {
     height: 45px;
     font-size: 14px;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.57;
     padding-left: 17px;
     margin-bottom: 15px;
 }
@@ -456,13 +461,14 @@ body {
 
     font-size: 13px;
     font-weight: 300;
-    line-height: 22px;
+    line-height: 1.69;
 }
 
 @media screen and (min-width: 768px) {
     .birthday__message {
         width: 283px;
         font-size: 15px;
+        line-height: 1.47;
     }
 }
 
@@ -475,20 +481,20 @@ body {
     text-align: center;
     font-size: 10px;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 2.2;
     color: var(--black-color);
 }
 
 @media screen and (min-width: 768px) {
     .zodiac__name {
         font-size: 13px;
+        line-height: 1.69;
     }
 }
 
 .results__title {
-    font-size: 14px;
     font-weight: 500;
-    line-height: 19px;
+    line-height: 1.36;
     color: var(--main-color);
     margin-top: 34px;
     margin-bottom: 19px;
@@ -517,7 +523,7 @@ body {
     padding: 12px;
     font-size: 14px;
     font-weight: 700;
-    line-height: 22px;
+    line-height: 1.57;
     color: var(--white-color);
 }
 
@@ -539,21 +545,21 @@ body {
 .results__steap {
     font-size: 12px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 1.33;
     color: var(--main-color);
 }
 
 .results__success {
     font-size: 12px;
     font-weight: 300;
-    line-height: 16px;
+    line-height: 1.33;
     color: #419330;
 }
 
 .results__success-red {
     font-size: 12px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1.33;
     color: var(--red-color);
     text-transform: uppercase;
 
@@ -563,7 +569,7 @@ body {
     display: block;
     font-size: 12px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1.33;
     color: var(--main-color);
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -576,7 +582,7 @@ body {
 .finish__thanks {
     font-size: 14px;
     font-weight: 500;
-    line-height: 19px;
+    line-height: 1.36;
     color: var(--main-color);
     margin-top: 34px;
     margin-bottom: 19px;
@@ -585,7 +591,7 @@ body {
 .finish__congratulations {
     font-size: 14px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 1.5;
     color: var(--active-color);
     margin-bottom: 19px;
 }
@@ -593,14 +599,14 @@ body {
 .finish__title {
  font-size: 18px;
  font-weight: 500;
- line-height: 19px;
+ line-height: 1.06;
  color: var(--main-color);
 }
 
 .finish__text {
     font-size: 14px;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 1.5;
     margin-bottom: 29px;
 }
 
@@ -627,7 +633,7 @@ body {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
-    line-height: 22px;
+    line-height: 1.57;
     margin-bottom: 9px;
 }
 
@@ -662,20 +668,21 @@ body {
     text-align: center;
     font-size: 10px;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 2.2;
     color: var(--footer-color);
 }
 
 @media screen and (min-width: 768px) {
     .footer {
         font-size: 12px;
+        line-height: 1.83;
     }
 }
 
 .footer__finish {
     font-size: 6px;
     font-weight: 700;
-    line-height: normal;
+    line-height: 7px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #C9C9C9;

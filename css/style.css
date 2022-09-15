@@ -677,3 +677,9 @@ body {
     text-transform: uppercase;
     color: #C9C9C9;
 }
+
+@media screen and (min-width: 768px) {
+    .footer__finish {
+        font-size: 8px;
+    }
+}

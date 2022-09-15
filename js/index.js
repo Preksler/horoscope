@@ -22,6 +22,7 @@ const refs = {
     fetchResults: document.querySelector(".fetch__table"),
     buttonNext: document.querySelector(".next__button"),
     buttonCall: document.querySelector(".call__button"),
+    footer: document.querySelector(".footer"),
 }
 
 let results = {};
@@ -154,7 +155,7 @@ function renderResults() {
         refs.pageResults.innerHTML = '';
         renderFinishPage();
         clearTimeout(timerId);
-    }, 5000)
+    }, 4500)
 }
 
 function renderFinishPage() {
@@ -169,7 +170,9 @@ function renderFinishPage() {
             <p class="finish__text">Что бы прослушать аудио-сообщение, необходимо нажать на кнопку ниже и позвонить со своего мобильного телефона. Позвоните и Прослушайте очень серьезную информацию!</p>
         </div>
     `;
-    refs.buttonCall.classList.remove("visually-hidden")
+    refs.buttonCall.classList.remove("visually-hidden");
+    refs.footer.classList.add("footer__finish");
+    refs.footer.textContent = "TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN FOLOSIREA LUI DECLARATI CA AVETI 18"
 }
 
 async function getPeopleInfo() {

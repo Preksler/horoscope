@@ -70,6 +70,16 @@ body {
     margin: -1px;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper__top {
+    flex-grow: 1;
+}
+
 .container {
     width: 100%;
     padding-left: 15px;
@@ -644,7 +654,7 @@ body {
     left: 18px;
 }
 
-.footer__copy {
+.footer {
     display: block;
     text-align: center;
     font-size: 10px;
@@ -654,7 +664,16 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-    .footer__copy {
+    .footer {
         font-size: 12px;
     }
+}
+
+.footer__finish {
+    font-size: 6px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C9C9C9;
 }

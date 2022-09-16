@@ -1,4 +1,4 @@
-import { listQuestionAnswer } from "./listQuestionlistQuestionAnswer.js";
+import { listQuestionAnswer } from "./listQuestionAnswer.js";
 import { fetchPeople } from "./fetchAPI.js";
 
 const refs = {
